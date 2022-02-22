@@ -6,6 +6,9 @@ from pathlib import Path
 from random import randrange, shuffle
 import tkinter as tk
 from plitk import load_tileset, PliTk
+from os import chdir, path
+
+chdir(path.dirname(path.abspath(__file__)))
 
 SCALE = 1
 DELAY = 40
