@@ -6,7 +6,7 @@ def run_with_log(func):
     try:
         func()
     except Exception as e:
-        logFile = open(datetime.now().strftime('crash-%Y%m%d-%H%M%S.log'), 'a')
+        logFile = open(datetime.now().strftime('trace-%Y%m%d-%H%M%S.log'), 'a')
         logFile.write('Exception message list:\n')
         for a in e.args:
             logFile.write('\t'+a+'\n')
