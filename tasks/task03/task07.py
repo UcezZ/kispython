@@ -1,27 +1,26 @@
-from random import random
+from matplotlib import pyplot as p, colors as c
+from numpy import random as r
 
 
 def sprite():
-    s = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]
-    ]
+    s = r.randint(0, 2, 25).reshape(5, 5)
     for i in range(3):
         for j in range(5):
-            s[j][i] = s[j][4-i] = True if random() > 0.5 else False
+            s[j][i] = s[j][4-i]
     return s
 
 
 def printSprite(sprite):
     for i in range(5):
         for j in range(5):
-            print('x' if sprite[i][j] else ' ', end='')
+            print(sprite[i][j], end=' ')
         print()
 
 
-for i in range(10):
-    printSprite(sprite())
-    print()
+s = sprite()
+printSprite(s)
+f, a = p.subplots()
+
+a.imshow(s, cmap=c.ListedColormap(['white', 'black']))
+
+p.show()
