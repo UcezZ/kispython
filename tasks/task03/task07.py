@@ -1,9 +1,9 @@
-from matplotlib import pyplot as p, colors as c
-from numpy import random as r
+from matplotlib import pyplot, colors
+from numpy import random
 
 
 def sprite():
-    s = r.randint(0, 2, 25).reshape(5, 5)
+    s = random.randint(0, 2, 25).reshape(5, 5)
     for i in range(3):
         for j in range(5):
             s[j][i] = s[j][4-i]
@@ -19,8 +19,8 @@ def printSprite(sprite):
 
 s = sprite()
 printSprite(s)
-f, a = p.subplots()
+f, a = pyplot.subplots()
 
-a.imshow(s, cmap=c.ListedColormap(['white', 'black']))
+a.imshow(s, cmap=colors.ListedColormap(['white', 'black']))
 
-p.show()
+pyplot.show()
