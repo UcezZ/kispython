@@ -18,7 +18,7 @@ def sprite():
 def printSprite(sprite):
     for i in range(5):
         for j in range(5):
-            print('\u25AE' if sprite[i][j] else ' ', end='')
+            print('x' if sprite[i][j] else ' ', end='')
         print()
 
 
