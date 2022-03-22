@@ -19,5 +19,4 @@ def run_with_log(func):
         logFile.close()
 
 
-# print(datetime.now().strftime('crash-%Y%m%d-%H%M%S.log'))
 run_with_log(lambda: 0/0)
