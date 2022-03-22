@@ -7,7 +7,10 @@ def run_with_log(func):
     try:
         func()
     except Exception as e:
-        chdir(path.dirname(path.abspath(__file__)))
+        try:
+            chdir(path.dirname(path.abspath(__file__)))
+        except:
+            ()
         logFile = open(datetime.now().strftime('trace-%Y%m%d-%H%M%S.log'), 'a')
         logFile.write('Exception message list:\n')
         for a in e.args:
