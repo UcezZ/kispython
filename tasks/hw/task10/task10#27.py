@@ -1,6 +1,3 @@
-from xmlrpc.client import boolean
-
-
 def rowEquals(row1, row2):
     if len(row1) != len(row2):
         return False
