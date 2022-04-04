@@ -20,7 +20,7 @@ class main:
         if self.state == 'G':
             self.state = 'B'
             return 9
-        return KeyError()
+        raise KeyError()
 
     def stash(self):
         if self.state == 'A':
@@ -37,12 +37,12 @@ class main:
             return 6
         if self.state == 'F':
             return 8
-        return KeyError()
+        raise KeyError()
     pass
 
 
 o = main()
-'''print(o.split())  # 0
+print(o.split())  # 0
 print(o.split())  # 2
 print(o.stash())  # 3
 print(o.split())  # KeyError
@@ -54,7 +54,7 @@ print(o.split())  # 9
 print(o.split())  # 2
 print(o.split())  # 4
 print(o.stash())  # 8'''
-print(o.split())  # 0
+'''print(o.split())  # 0
 print(o.split())  # 2
 print(o.split())  # 4
 print(o.stash())  # 8
@@ -64,4 +64,4 @@ print(o.split())  # 9
 print(o.split())  # 2
 print(o.stash())  # 3
 print(o.stash())  # 5
-print(o.stash())  # 6
+print(o.stash())  # 6'''
