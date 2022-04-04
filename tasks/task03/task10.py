@@ -18,13 +18,24 @@ def getStatsByWD(results, group=''):
     return stats
 
 
-def getStatsByTime(results, group=''):
+def getGroupsCount(results, group=''):
+    g = []
+    for row in results:
+        if group in row[2] and not row[2] in g:
+            g.append(row[2])
+    return len(g)
+
+
+def getStatsByTime(results, group='', avg=False):
     stats = []
     for i in range(24):
         stats.append(0)
     for row in results:
         if group in row[2]:
             stats[parse_time(row[3]).hour] += 1
+    if avg:
+        for i in range(24):
+            stats[i] = stats[i]/getGroupsCount(results, group)
     return stats
 
 
@@ -48,10 +59,10 @@ fig, ax = pyplot.subplots()
 '''rects1 = ax.bar(x - width/2, getStatsByWD(results), width, label='Все группы')
 rects2 = ax.bar(x + width/2, getStatsByWD(results,
                 'ИКБО-10-20'), width, label='ИКБО-10-20')'''
-rects1 = ax.bar(x - width/2, getStatsByTime(results, 'ИНБО-03-20'),
-                width, label='ИНБО-03-20')
+rects1 = ax.bar(x - width/2, getStatsByTime(results, 'ИНБО', True),
+                width, label='ИНБО')
 rects2 = ax.bar(x + width/2, getStatsByTime(results,
-                'ИКБО-10-20'), width, label='ИКБО-10-20')
+                'ИКБО', True), width, label='ИКБО')
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Количество выполнений')
 ax.set_title('Задачи')
