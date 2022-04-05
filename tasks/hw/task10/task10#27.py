@@ -1,11 +1,3 @@
-def countOf(data, row):
-    c = 0
-    for r in data:
-        if r == row:
-            c += 1
-    return c
-
-
 def floatConvertCrutch(item):
     cnt = 3-len(item[item.find('.')+1:])
     for i in range(cnt):
@@ -24,13 +16,11 @@ def transpose(table):
 
 
 def main(data):
-    i = 0
-    while i < len(data):
-        if countOf(data, data[i]) > 1:
-            data.remove(data[i])
-            i = 0
-        else:
-            i += 1
+    t = []
+    for r in data:
+        if r not in t:
+            t.append(r)
+    data = t
     for i in range(len(data)):
         data[i][0] = floatConvertCrutch(data[i][0])
         data[i][1] = 'Выполнено' if data[i][1].lower(
