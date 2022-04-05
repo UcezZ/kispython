@@ -63,7 +63,7 @@ def readE(bin, offset):
     offset += 4
     o = unpack('H', bin[offset:offset+2])[0]
     offset += 2
-    data['E2'] = unpack(str(t)+'d', bin[o:o+8*t])
+    data['E2'] = list(unpack(str(t)+'d', bin[o:o+8*t]))
     data['E3'] = unpack('I', bin[offset:offset+4])[0]
     return data
 
