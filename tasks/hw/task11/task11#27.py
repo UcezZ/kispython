@@ -69,7 +69,7 @@ def readE(bin, offset):
 
 
 def main(data):
-    readA(data, 4)
+    return readA(data, 4)
 
 
 print(main(b'HWHR(D\r\xc0\x0bz\xad\x1c\xbc\xae\x90\xd8\xbe\xe9(\x94AH\xb5v\x0c!\xc9Q'
